@@ -1,0 +1,40 @@
+#include <winresrc.h>
+#include "version.h"
+
+#pragma code_page(1252)
+
+#define IDR_RT_MANIFEST CREATEPROCESS_MANIFEST_RESOURCE_ID
+
+#ifdef _DEBUG
+#define MY_VS_FF_DEBUG VS_FF_DEBUG
+#else
+#define MY_VS_FF_DEBUG 0x0L
+#endif
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+VS_VERSION_INFO     VERSIONINFO
+    FILEVERSION     FONTREG_VERSION_FULL
+    PRODUCTVERSION  FONTREG_VERSION_FULL
+    FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+    FILEFLAGS       MY_VS_FF_DEBUG
+    FILEOS          VOS_NT_WINDOWS32
+    FILETYPE        VFT_APP
+    FILESUBTYPE     VFT2_UNKNOWN
+{
+	BLOCK "StringFileInfo"
+	{
+		BLOCK "040904b0" // English (U.S.)
+		{
+			VALUE "FileDescription", FONTREG_NAME_STR
+			VALUE "FileVersion", FONTREG_VERSION_STR
+			VALUE "OriginalFilename", "FontReg.exe"
+		}
+	}
+	BLOCK "VarFileInfo"
+	{
+		VALUE "Translation", 0x0409, 0x04b0 // English (U.S.)
+	}
+}
+
+IDR_RT_MANIFEST         RT_MANIFEST             "FontReg.manifest"
